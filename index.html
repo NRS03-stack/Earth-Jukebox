@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA Earth Jukebox</title>
+  
+  <!-- Leaflet CSS for Interactive Maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Leaflet & Tone.js Audio Libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>🌍 NASA Earth Jukebox</h1>
+    <p>Sonifying Earth Observation data into interactive musical landscapes</p>
+  </header>
+
+  <main class="container">
+    <div id="map"></div>
+
+    <div class="control-panel">
+      <h2>Environmental Data & Audio</h2>
+      
+      <div class="data-display">
+        <p><strong>Coordinates:</strong> <span id="location-name">Click on map</span></p>
+        <p><strong>Surface Temp (LST):</strong> <span id="temp-val">--</span> °C</p>
+        <p><strong>Vegetation (NDVI):</strong> <span id="ndvi-val">--</span></p>
+        <p><strong>Precipitation:</strong> <span id="rain-val">--</span> mm</p>
+      </div>
+
+      <div class="controls">
+        <button id="play-btn" disabled>▶ Play Sound</button>
+        <button id="stop-btn" disabled>⏹ Stop</button>
+      </div>
+      
+      <div class="legend">
+        <h3>Instrument Mapping</h3>
+        <ul>
+          <li><strong>Temperature:</strong> Lead Melody Pitch</li>
+          <li><strong>Vegetation:</strong> Sub-Bass Frequency</li>
+          <li><strong>Precipitation:</strong> Percussion / Drums</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
