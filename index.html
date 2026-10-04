@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA Earth Jukebox</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Leaflet & Tone.js Audio Libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+
+  <header role="banner" tabIndex="0" data-announce="Header section: NASA Earth Jukebox application">
+    <h1>🌍 NASA Earth Jukebox</h1>
+    <p>Sonifying Earth Observation data into interactive musical landscapes</p>
+  </header>
+
+  <main class="container" role="main">
+    <div id="map" tabIndex="0" role="region" aria-label="Interactive Earth Map" data-announce="Map Area: Use arrow keys or click to select locations on the globe"></div>
+
+    <div class="control-panel" role="region" aria-label="Control Panel">
+      <h2 tabIndex="0" data-announce="Control Panel: Environmental Data and Audio options">Environmental Data & Audio</h2>
+
+      <!-- Country & City Dropdowns -->
+      <div class="filter-group">
+        <div class="filter-item">
+          <label for="country-select">Country:</label>
+          <select id="country-select" aria-label="Select Country" data-announce="Country Selection Dropdown">
+            <option value="">-- Select Country --</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="city-select">City:</label>
+          <select id="city-select" disabled aria-label="Select City" data-announce="City Selection Dropdown">
+            <option value="">-- Select City --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="data-display" aria-live="polite">
+        <p tabIndex="0" data-announce="Coordinates Information">
+          <strong>Coordinates:</strong> 
+          <span id="location-name">Click map, select city, or press V</span>
+        </p>
+        <p tabIndex="0" data-announce="Surface Temperature Metric">
+          <strong>Surface Temp (LST):</strong> 
+          <span><span id="temp-val">--</span> °C <small id="temp-trend"></small></span>
+        </p>
+        <p tabIndex="0" data-announce="Vegetation Index Metric">
+          <strong>Vegetation (NDVI):</strong> 
+          <span><span id="ndvi-val">--</span> <small id="ndvi-trend"></small></span>
+        </p>
+        <p tabIndex="0" data-announce="Precipitation Metric">
+          <strong>Precipitation:</strong> 
+          <span><span id="rain-val">--</span> mm <small id="rain-trend"></small></span>
+        </p>
+      </div>
+
+      <div class="controls">
+        <button id="play-btn" class="btn-play" disabled aria-label="Play Sound" data-announce="Button: Play Sound">► Play Sound</button>
+        <button id="stop-btn" class="btn-stop" disabled aria-label="Stop Sound" data-announce="Button: Stop Sound">■ Stop</button>
+        <button id="voice-btn" class="btn-voice" aria-label="Voice Search" data-announce="Button: Voice Search. Press V shortcut">🎤 Voice (V)</button>
+      </div>
+      
+      <div class="legend" tabIndex="0" data-announce="Instrument Mapping Legend">
+        <h3>Instrument Mapping</h3>
+        <ul>
+          <li><strong>Temperature:</strong> Lead Synth Pitch (High/Low Pitch)</li>
+          <li><strong>Vegetation:</strong> Sub-Bass Frequency (Deep Tone)</li>
+          <li><strong>Precipitation:</strong> Rhythmic Drum Pulse (Speed & Volume)</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
